@@ -14,10 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\VulnerabilityController::class, 'index'])->name('home');
+
+Route::group(['prefix' => 'vulnerability', 'as' => 'vulnerability.'], function ($route) {
+    $route->get('/{vulnerability:slug}', [App\Http\Controllers\VulnerabilityController::class, 'show'])
+        ->name('show');
+});

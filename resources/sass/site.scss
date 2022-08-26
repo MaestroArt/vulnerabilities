@@ -1,0 +1,15 @@
+.rowselected {
+    background-color: white;
+
+    &:hover {
+        background-color: lightblue;
+    }
+}
+.vulnerability-details {
+    .key-title {
+        font-weight: bold;
+    }
+    .description {
+        white-space: pre-line;
+    }
+}
