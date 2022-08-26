@@ -31,6 +31,9 @@ Route::group(['prefix' => 'vulnerability', 'as' => 'vulnerability.'], function (
     $route->post('/store', [App\Http\Controllers\VulnerabilityController::class, 'store'])
         ->name('store')
         ->middleware(['auth']);
+    $route->get('/{vulnerability}/destroy', [App\Http\Controllers\VulnerabilityController::class, 'destroy'])
+        ->name('destroy')
+        ->middleware(['auth']);
 //public
     $route->get('/{vulnerability:slug}', [App\Http\Controllers\VulnerabilityController::class, 'show'])
         ->name('show');
